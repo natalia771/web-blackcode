@@ -1,0 +1,541 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fcfbf9; /* Blanco tiza de fondo */
+  color: #333333;
+}
+/* 🧱 Contenedor del Header */
+.main-header {
+  border-bottom: 1px solid #eef2f5;
+  background-color: #ffffff;
+  position: fixed;        /* 👈 Hace que el header se quede estático */
+  top: 0;                 /* 👈 Lo pega arriba del todo */
+  left: 0;                /* 👈 Lo alinea a la izquierda */
+  width: 100%;            /* 👈 Se asegura de que ocupe todo el ancho de la pantalla */
+  z-index: 2000;          /* 👈 Lo mantiene por encima de cualquier otro elemento */
+}
+.hero-sales {
+  background: linear-gradient(135deg, #eef5fc 0%, #fcfbf9 100%); /* Degradado suave que combina con tu fondo[cite: 2] */
+  border-radius: 24px;   /* Bordes muy suaves alineados con tus tarjetas[cite: 2] */
+  padding: 60px 40px;    /* Espaciado interno generoso para que respire */
+  margin-bottom: 50px;   /* Empuja las ofertas de la semana hacia abajo */
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 1px solid #eef2f5; /* Borde sutil idéntico al de tus tarjetas[cite: 2] */
+  box-shadow: 0 8px 24px rgba(162, 194, 232, 0.08); /* Sombra muy ligera en azul sereno[cite: 2] */
+}
+
+.hero-content {
+  max-width: 800px; /* Evita que el texto se estire demasiado y canse la vista */
+}
+
+/* El H1 (Título Gancho) */
+.hero-content h1 {
+  font-size: 38px;       /* Tamaño dominante para captar atención inmediata */
+  color: #333333;        /* Tu color principal oscuro[cite: 2] */
+  margin: 0 0 20px 0;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* El Subtítulo Racional */
+.hero-subtitle {
+  font-size: 18px;
+  color: #666666;        /* Tu gris de subtítulos[cite: 2] */
+  line-height: 1.6;
+  margin: 0 0 110px 0;
+}
+
+/* El Botón de Acción Principal (CTA) */
+.hero-cta-btn {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #a2c2e8; /* Tu azul sereno característico[cite: 2] */
+  color: #ffffff;            /* Texto blanco para máximo contraste[cite: 2] */
+  padding: 16px 36px;        /* Botón grande y fácil de cliquear */
+  border-radius: 30px;       /* Bordes totalmente redondeados[cite: 2] */
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(162, 194, 232, 0.4); /* Le da volumen al botón */
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+/* Animaciones para inducir al clic */
+.hero-cta-btn:hover {
+  background-color: #8db5e0; /* Tono más oscuro al pasar el mouse[cite: 2] */
+  transform: scale(1.05);    /* Crece sutilmente de tamaño para verse interactivo */
+}
+
+/* 🔍 Barra Principal (Logo, Buscador, Usuario) */
+.header-main-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.header-logo img {
+  height: 95px;         /* Define una altura fija y cómoda para la barra[cite: 2] */
+  width: auto;          /* Hace que el ancho se adapte automáticamente sin deformar la imagen */
+  display: block;       /* Elimina espacios en blanco no deseados debajo de la imagen */
+  transition: transform 0.3s ease;
+}
+
+/* Efecto sutil interactivo al pasar el mouse */
+.header-logo img:hover {
+  transform: scale(1.05); /* Agranda el logo un 5% al posicionarse sobre él */
+}
+/* Buscador Inteligente */
+.header-search input {
+  width: 400px;
+  padding: 10px 16px;
+  border: 1px solid #e1e8ed;
+  border-radius: 20px; /* Bordes suaves */
+  background-color: #f5f8fa;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.header-search input:focus {
+  border-color: #a2c2e8; /* Azul sereno pastel al hacer clic */
+}
+
+.header-search button {
+  display: none; /* Escondemos el botón tradicional para un look más limpio */
+}
+
+/* Botones de Usuario y Carrito */
+.header-user-actions .action-btn {
+  text-decoration: none;
+  color: #555555;
+  margin-left: 20px;
+  font-size: 14px;
+}
+
+.header-user-actions .action-btn:hover {
+  color: #a2c2e8; /* Cambio sutil al pasar el mouse */
+}
+
+/* 🐶 Categorías de Navegación Inferior */
+.header-nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  position: relative;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+.mega-menu {
+  position: absolute;
+  top: 90%;            /* Sigue la misma lógica de tu dropdown normal */
+  left: 0;
+  width: 100%;         /* Ocupa el 100% del contenedor header-nav-bar */
+  background-color: #ffffff;
+  box-shadow: 0 8px 24px rgba(162, 194, 232, 0.15); /* Tu sombra azul sereno */
+  border-radius: 0 0 12px 12px;
+  
+  /* Usamos CSS Grid para las columnas */
+  display: none;       /* Oculto por defecto */
+  grid-template-columns: repeat(4, 1fr); /* 3 columnas de igual tamaño */
+  gap: 30px;
+  padding: 30px 40px;
+  z-index: 1000;
+}
+.mega-menu::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background-color: transparent; /* Puente invisible */
+}
+.mega-menu::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #a2c2e8; /* Tu línea superior azul sereno */
+}
+.nav-links li.has-mega-menu:hover .mega-menu {
+  display: grid; /* Cambia a grid en lugar de block */
+}
+.mega-column {
+  display: flex;
+  flex-direction: column;
+}
+.mega-column h3 {
+  color: #a2c2e8;      /* Tu azul principal para los títulos */
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eef2f5; /* Línea separadora muy sutil */
+  padding-bottom: 8px;
+}
+.mega-column a {
+  color: #555555;
+  text-decoration: none;
+  padding: 8px 0;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+/* Efecto hover en los enlaces respetando tu estilo */
+.mega-column a:hover {
+  color: #a2c2e8;            /* El texto cambia a azul sereno */
+  padding-left: 10px;        /* Desplazamiento elegante a la derecha */
+}
+.nav-links li.has-mega-menu {
+  position: static; 
+}
+.nav-links li {
+  margin-right: 30px;
+   /* 👈 AGREGAR ESTA LÍNEA: Base para el menú flotante */
+}
+.dropdown-menu {
+  position: absolute;
+  top: 90%;              /* Lo subimos un poco para que el borde invisible toque a "Perros" */
+  left: 0;
+  background-color: #ffffff;
+  min-width: 220px;
+  display: none;         
+  box-shadow: 0 8px 24px rgba(162, 194, 232, 0.15); 
+  
+  /* 🛠️ CAMBIA LA LÍNEA DEL BORDER-TOP POR ESTA: */
+  border-top: 10px solid transparent; /* Crea un puente invisible para el mouse */
+  
+  padding: 10px 0;
+  z-index: 1000;         
+  border-radius: 0 0 12px 12px; 
+}
+.dropdown-menu::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #a2c2e8; /* Tu azul sereno vuelve a aparecer aquí */
+}
+/* Enlaces del desplegable (Paseo, Descanso, etc.) */
+.dropdown-menu li {
+  margin: 0 !important;  /* Resetea el margen derecho en el submenú */
+  display: block;
+}
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 20px;
+  font-size: 14px;
+  color: #555555;
+  font-weight: 500;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+/* Efecto Hover en las subcategorías */
+.dropdown-menu li a:hover {
+  background-color: #f5f8fa; /* Fondo grisáceo limpio idéntico al de tu buscador */
+  color: #a2c2e8;            /* El texto cambia a tu azul sereno */
+  padding-left: 25px;        /* Desplazamiento elegante */
+}
+
+/* El truco de magia: Muestra el menú cuando el cursor se posa en el li padre */
+.nav-links li:hover .dropdown-menu {
+  display: block;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #666666;
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+/* 🏷️ Estilo de Etiqueta Especial para Ofertas */
+.nav-links .nav-sale {
+  background-color: #ffebee; /* Fondo rosa pastel muy suave */
+  color: #e57373;            /* Texto coral sutil */
+  padding: 6px 14px;         /* Espacio interno para crear la cápsula */
+  border-radius: 15px;       /* Bordes completamente redondeados */
+  font-weight: 600;          /* Texto un poco más firme */
+  transition: all 0.3s ease;
+}
+
+/* Efecto al pasar el mouse sobre Ofertas */
+.nav-links .nav-sale:hover {
+  background-color: #fdadad; /* El fondo se intensifica un poco */
+  color: #ffffff;            /* El texto cambia a blanco */
+}
+.nav-support a {
+  text-decoration: none;
+  color: #a2c2e8;                /* Texto en azul sereno */
+  border: 1px solid #a2c2e8;     /* Borde fino del mismo color */
+  padding: 6px 16px;             /* Espacio interno para darle forma de botón */
+  border-radius: 20px;           /* Bordes redondeados y elegantes */
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;     /* Transición suave para la animación */
+}
+/* Efecto al pasar el mouse (Hover) */
+.nav-support a:hover {
+  background-color: #a2c2e8;     /* El fondo se llena de azul sereno */
+  color: #ffffff;                /* El texto cambia a blanco */
+}
+/* 🌐 Estructura del Contenedor Principal */
+.main-content {
+ max-width: 1200px;          
+  margin: 220px auto 40px auto; /* 👈 AUMENTADO el primer valor (margen superior) para que el contenido no quede oculto detrás del header fijo */
+  padding: 0 40px;       /* Margen interno para que no toque los bordes en pantallas chicas */
+}
+
+/* 🏷️ Encabezado de la Sección de Ofertas */
+.sales-title {
+  text-align: center;         /* Centra el texto */
+  margin-bottom: 40px;        /* Espacio antes de mostrar los productos */
+}
+
+.sales-title h2 {
+  font-size: 24px;
+  color: #333333;
+  margin-bottom: 8px;
+}
+
+.sales-title p {
+  font-size: 15px;
+  color: #777777;             /* Gris suave para el subtítulo */
+  margin: 0;
+}
+
+/* 🎴 Cuadrícula de Productos */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 👈 CORREGIDO: Se agregó '1fr' para definir correctamente tres columnas iguales */
+  gap: 30px;                 /* Espacio limpio entre cada tarjeta */
+}
+
+/* 📦 Tarjeta de Producto Individual */
+.product-card {
+ background-color: #ffffff;
+  border: 1px solid #eef2f5;  
+  border-radius: 16px;        
+  padding: 15px;             /* 👈 Reducido un poco para mayor balance visual con 6 ítems */
+  position: relative;         
+  display: flex;             /* 👈 Permite alinear el contenido interno verticalmente */
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto sutil al pasar el mouse sobre el producto */
+.product-card:hover {
+  transform: translateY(-5px); /* Eleva la tarjeta sutilmente */
+  box-shadow: 0 10px 20px rgba(162, 194, 232, 0.15); /* Sombra suave color azul sereno */
+}
+
+/* 🏷️ Etiqueta de Porcentaje de Descuento */
+.badge-discount {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background-color: #ffebee;  /* Rosa pastel a juego con el menú de ofertas */
+  color: #e57373;            /* Coral sutil */
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* 🖼️ Contenedor de la Imagen */
+.product-image {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.product-image img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;       /* Evita que la foto del producto se deforme */
+}
+
+/* 📝 Información del Producto */
+.product-info h3 {
+  font-size: 16px;
+  color: #333333;
+  margin: 0 0 8px 0;
+  font-weight: 600;
+}
+
+.pet-category {
+  font-size: 12px;
+  color: #888888;
+  margin: 0 0 12px 0;
+}
+
+/* 💰 Precios */
+.product-price {
+  display: flex;
+  align-items: center;
+}
+
+.current-price {
+  font-size: 18px;
+  font-weight: 600;
+  color: #e57373;            /* Resalta el precio nuevo con el color de oferta */
+  margin-right: 10px;
+}
+
+.old-price {
+  font-size: 14px;
+  color: #b0bec5;
+  text-decoration: line-through; /* Raya el precio antiguo */
+}
+/* 👣 Estilos Generales del Footer */
+.main-footer {
+  background-color: #f4f7f9; /* Fondo pastel azul/gris muy suave */
+  padding: 60px 40px 30px 40px;
+  margin-top: 60px;
+  border-top: 1px solid #eef2f5;
+}
+
+/* ✉️ Sección de Suscripción (Newsletter) */
+.footer-newsletter {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 50px auto; /* Centra el bloque y da espacio abajo */
+}
+
+.footer-newsletter h3 {
+  font-size: 22px;
+  color: #333333;
+  margin-bottom: 10px;
+}
+
+.footer-newsletter p {
+  font-size: 14px;
+  color: #666666;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+/* Formulario de Suscripción */
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.newsletter-form input {
+  width: 300px;
+  padding: 12px 18px;
+  border: 1px solid #e1e8ed;
+  border-radius: 25px;       /* Bordes muy suaves */
+  font-size: 14px;
+  outline: none;
+  background-color: #ffffff;
+}
+
+.newsletter-form button {
+  background-color: #a2c2e8; /* Nuestro color azul sereno */
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.newsletter-form button:hover {
+  background-color: #8db5e0; /* Un tono más oscuro al pasar el mouse */
+}
+
+/* 🌐 Enlaces y Redes Sociales (Contenedor Inferior) */
+.footer-bottom-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #e1e8ed; /* Línea divisoria interna */
+}
+
+/* Enlaces de Navegación */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #4a5568;            /* Un gris mucho más oscuro y legible */
+  font-size: 14px;
+  font-weight: 500;          /* Un poco más de grosor */
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: #7aa7d6;
+}
+
+/* Sección de Redes Sociales */
+.social-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.social-btn {
+  text-decoration: none;
+  color: #4a5568;            /* Texto legible inicial */
+  font-size: 13px;
+  font-weight: 600;
+  background-color: #e2ecf7; /* Fondo azul pastel suave inicial */
+  padding: 8px 16px;         /* Espacio interno del botón */
+  border-radius: 20px;
+  transition: all 0.3s ease; /* Transición suave para el color y fondo */
+}
+
+/* 🌟 Efectos Hover Específicos por Red Social */
+
+/* Instagram: Gradiente característico */
+.social-btn.instagram:hover {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: #ffffff;            /* Texto blanco para contrastar */
+}
+
+/* Facebook: Azul oficial */
+.social-btn.facebook:hover {
+  background-color: #1877f2;
+  color: #ffffff;
+}
+
+/* TikTok: Negro profundo (resalta con sus fuentes tipográficas) */
+.social-btn.tiktok:hover {
+  background-color: #010101;
+  color: #ffffff;
+}

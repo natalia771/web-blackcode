@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Tienda Online</title>
+    <link rel='stylesheet' href='css/style.css'>
+    
+</head>
+    <body>
+        <header class="main-header">
+        <!-- BARRA PRINCIPAL: Logo, Buscador y Cuenta/Carrito -->
+        
+        <div class="header-main-bar">
+    
+        <!-- 🐾 Izquierda: Logo de la marca -->
+        <div class="header-logo">
+        <a href="#">
+        <img src="img/logo.png" alt="Logo Tienda de Mascotas">
+        </a>
+        </div>
+
+        <!-- 🔍 Centro: Buscador Inteligente -->
+        <div class="header-search">
+        <form action="/buscar" method="GET">
+        <input type="text" placeholder="Busca collares, juguetes, alimento...">
+        <button type="submit">Buscar</button>
+        </form>
+        </div>
+
+    <!-- 👤/🛒 Derecha: Herramientas de Usuario -->
+        <div class="header-user-actions">
+        <a href="/cuenta" class="action-btn">Mi Cuenta</a>
+        <a href="/carrito" class="action-btn">Carrito (0)</a>
+        </div>
+
+        </div>
+
+        <!-- BARRA DE NAVEGACIÓN: Categorías de animales y ayuda -->
+        <nav class="header-nav-bar">
+    
+        <!-- 🐶🐱 Categorías principales -->
+        <ul class="nav-links">
+        <li><a href="#" class="nav-sale">Ofertas %</a></li>
+        <li class="has-mega-menu">
+          <a href="#">Perros</a>
+            <div class="mega-menu">
+              <div class="mega-column">
+                <h3>Alimentos</h3>
+                <a href="#">Alimento Seco</a>
+                <a href="#">Alimento Humedo</a>
+                <a href="#">Diestas Veterinarias</a>
+                <a href="#">Snack y Premios</a>
+                <a href="#">Alimento Natural</a>
+              </div>
+              <div class="mega-column">
+                <h3>Accesorios</h3>
+                <a href="#">Camas y Mantas</a>
+                <a href="#">Collares, Arneses y Correas</a>
+                <a href="#">Platos y Bebederos</a>
+                <a href="#">Transportadores y Viajes</a>
+                <a href="#">Ropa y Accesorios</a>
+                <a href="#">Adiestramiento y Educacion</a>
+                <a href="#">Hogar</a>
+              </div>
+              <div class="mega-column">
+                <h3>Juguetes</h3>
+                <a href="#">Peluches</a>
+                <a href="#">Mordedores y Flexibles</a>
+                <a href="#">Lanzadores de Pelotas</a>
+                <a href="#">Cuerdas</a>
+                <a href="#">Interactivos</a>
+              </div>
+              <div class="mega-column">
+                <h3>Farmacia e Higiene</h3>
+                <a href="#">Antiparacitarios</a>
+                <a href="#">Farmacia y Salud</a>
+                <a href="#">Peluqueria e Higiene</a>
+                <a href="#">Pañales</a>
+                <a href="#">Cuidado Dental</a>
+                <a href="#">Post-Operatorios</a>
+                <a href="#">Antiestrés y Relajación</a>
+              </div>
+            </div>    
+        </li>                    
+        <li class="has-mega-menu">
+          <a href="#">Gatos</a> 
+           <div class="mega-menu">
+            <div class="mega-column">
+                <h3>Alimentos</h3>
+                <a href="#">Alimento Seco</a>
+                <a href="#">Alimento Humedo</a>
+                <a href="#">Diestas Veterinarias</a>
+                <a href="#">Snack y Premios</a>
+                <a href="#">Alimento Natural</a>
+              </div>
+              <div class="mega-column">
+                <h3>Arena y Accesorios</h3>
+                <a href="#">Arena para gato</a>
+                <a href="#">Areneros</a>
+                <a href="#">Accesorio para Arena</a>
+              </div>
+              <div class="mega-column">
+                <h3>Accesorios</h3>
+                <a href="#">Jueguetes</a>
+                <a href="#">Camas y Mantas</a>
+                <a href="#">Rascadores y Gimnasios</a>
+                <a href="#">Dispensadores, Fuentes y Platos</a>
+                <a href="#">Collares y Correas</a>
+                <a href="#">Transportadores y Viajes</a>
+              </div>
+              <div class="mega-column">
+                <h3>Farmacia e Higiene</h3>
+                <a href="#">Antiparacitarios</a>
+                <a href="#">Farmacia y Salud</a>
+                <a href="#">Peluqueria e Higiene</a>
+                <a href="#">Relajacion y Catnip</a>
+                <a href="#">Adiestramiento y Educación</a>
+              </div>
+            </div>
+        </li>
+        <li class="has-mega-menu">
+          <a href="#">Aves</a>
+          <div class="mega-menu">
+              <div class="mega-column">
+                <h3>Alimentacion</h3>
+                <a href="#">Mixturas</a>
+                <a href="#">Semillas</a>
+                <a href="#">Comida de Canarios</a>
+                <a href="#">Comida para Loros</a>
+                <a href="#">Pasta de cria para Aves</a>
+                <a href="#">Papilla de Cría</a>
+                <a href="#">Piensos Extrusionados</a>
+              </div>
+              <div class="mega-column">
+                <h3>Accesorio para Pajaros</h3>
+                <a href="#">Comederos</a>
+                <a href="#">Bebederos</a>
+                <a href="#">Jaulas</a>
+                <a href="#">Nidos</a>
+                <a href="#">Bañeras</a>
+                <a href="#">Transportines</a>
+              </div>
+              <div class="mega-column">
+                <h3>Vitaminas y Suplementos</h3>
+                <a href="#">Medicamentos Naturales</a>
+                <a href="#">Suplementos</a>
+                <a href="#">Pigmentos</a>
+                <a href="#">Sales Minerales</a>
+              </div>
+          </div>
+        </li>
+        <li class="has-mega-menu">
+            <a href="#">Otras Mascotas</a>
+            <div class="mega-menu">
+              <div class="mega-column">
+                <h3>Roedores y Conejos</h3>
+                <a href="#">Accesorios y Juguetes</a>
+                <a href="#">Alimentos y Vitaminas</a>
+                <a href="#">Casas y Jaulas</a>
+                <a href="#">Comederos y Bebederos</a>
+                <a href="#">Salud e Higiene</a>
+              </div>
+              <div class="mega-column">
+                <h3>Peces</h3>
+                <a href="#">Acuarios y Peceras</a>
+                <a href="#">Alimentos</a>
+                <a href="#">Medicamentos y Vitaminas</a>
+      
+              </div>
+            </div>
+
+        </li>
+      </ul>
+
+        <!-- 📞 Enlace de soporte -->
+        <div class="nav-support">
+      
+        <a href="contactoyayuda.html">Contacto y Ayuda</a>
+        </div>
+
+        </nav>
+       
+</header>
+
+  <main class="main-content">
+
+    <!-- 🚀 NUEVA SECCIÓN HERO: Tu encabezado de alto impacto[cite: 1] -->
+    <section class="hero-sales">
+        <div class="hero-content">
+            <!-- Título Principal (H1) - El gancho emocional -->
+            <h1>Todo lo que tu mascota sueña, al precio que tú necesitas.</h1>
+            
+            <!-- Subtítulo - Claridad de catálogo y propuesta de ahorro -->
+            <p class="hero-subtitle">Encuentra las mejores marcas y diseños en correas, platos y ropa para mascotas. Precios directos de fábrica para que encuentres todo lo que buscas en un solo lugar.</p>
+            
+            <!-- Botón de Acción (CTA) - El imán psicológico -->
+            <a href="#ofertas" class="hero-cta-btn">Ver Ofertas Disponibles</a>
+        </div>
+    </section>
+
+    <!-- 🛍️ SECCIÓN DE OFERTAS DESTACADAS (Ya la tenías aquí)[cite: 1] -->
+    <section id="ofertas" class="featured-sales">
+  <div class="sales-title">
+    <h2>Ofertas de la Semana 🌟</h2>
+    <p>Grandes descuentos para consentir a tu mejor amigo</p>
+  </div>
+
+  <div class="products-grid">
+
+    <div class="product-card">
+      <span class="badge-discount">-20%</span>
+      <div class="product-image">
+        <img src="img/Cambo-gatos.jpg" alt="Alimento para Gatos">
+      </div>
+      <div class="product-info">
+        <h3>Alimento para Gatos</h3>
+        <p class="pet-category">🐱 Gatos</p>
+        <div class="product-price">
+          <span class="current-price">$15.99</span>
+          <span class="old-price">$19.99</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <span class="badge-discount">-15%</span>
+      <div class="product-image">
+        <img src="img/royal-canin.webp" alt="Alimento Seco para Perros">
+      </div>
+      <div class="product-info">
+        <h3>Alimento Seco para Perros</h3>
+        <p class="pet-category">🐶 Perros</p>
+        <div class="product-price">
+          <span class="current-price">$21.25</span>
+          <span class="old-price">$25.00</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <span class="badge-discount">-30%</span>
+      <div class="product-image">
+        <img src="img/Columbio-.avif" alt="Juguete de Madera para Aves">
+      </div>
+      <div class="product-info">
+        <h3>Columpio de Madera Natural</h3>
+        <p class="pet-category">🦜 Aves</p>
+        <div class="product-price">
+          <span class="current-price">$8.40</span>
+          <span class="old-price">$12.00</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <span class="badge-discount">-10%</span>
+      <div class="product-image">
+        <img src="img/Rascador-gato.webp" alt="Rascador de Gato">
+      </div>
+      <div class="product-info">
+        <h3>Poste Rascador de Sisal Orgánico</h3>
+        <p class="pet-category">🐱 Gatos</p>
+        <div class="product-price">
+          <span class="current-price">$26.99</span>
+          <span class="old-price">$29.99</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <span class="badge-discount">-25%</span>
+      <div class="product-image">
+        <img src="img/ArnesAntiR-Perros.webp" alt="Arnés Antitirones">
+      </div>
+      <div class="product-info">
+        <h3>Arnés Antitirones Reflectante</h3>
+        <p class="pet-category">🐶 Perros</p>
+        <div class="product-price">
+          <span class="current-price">$18.75</span>
+          <span class="old-price">$25.00</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <span class="badge-discount">-15%</span>
+      <div class="product-image">
+        <img src="img/filtro-Peces.avif" alt="Filtro de Acuario">
+      </div>
+      <div class="product-info">
+        <h3>Filtro de Cascada Silencioso</h3>
+        <p class="pet-category">🐠 Peces</p>
+        <div class="product-price">
+          <span class="current-price">$33.99</span>
+          <span class="old-price">$39.99</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+</main>
+<footer class="main-footer">
+  
+  <div class="footer-newsletter">
+    <h3>Únete a nuestra comunidad pet-lover 🐾</h3>
+    <p>Suscríbete para recibir ofertas exclusivas, consejos de cuidado y lanzamientos de nuevos accesorios.</p>
+    <form class="newsletter-form">
+      <input type="email" placeholder="Ingresa tu correo electrónico" required>
+      <button type="submit">Suscribirme</button>
+    </form>
+  </div>
+
+  <div class="footer-bottom-content">
+    
+    <ul class="footer-links">
+      <li><a href="nosotros.html">Nosotros / Quienes Somos</a></li>
+      <li><a href="/envios">Envíos y Devoluciones</a></li>
+      <li><a href="/privacidad">Políticas de Privacidad</a></li>
+    </ul>
+
+    <div class="footer-socials">
+      <p>Síguenos en nuestras redes:</p>
+        <div class="social-icons">
+        <a href="https://instagram.com" class="social-btn instagram">Instagram</a>
+        <a href="https://facebook.com" class="social-btn facebook">Facebook</a>
+        <a href="https://tiktok.com" class="social-btn tiktok">TikTok</a>
+        </div>
+    </div>
+    
+  </div>
+
+  <div class="footer-copyright">
+    <p>&copy; 2026 Tienda de Mascotas. Todos los derechos reservados.</p>
+  </div>
+
+</footer>
+
+</body>
+</html>
