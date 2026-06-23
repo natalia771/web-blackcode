@@ -1,0 +1,574 @@
+/* ==========================================================================
+   1. ESTILOS GENERALES Y VARIABLES DE ASPECTO
+   ========================================================================== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fcfbf9; /* Blanco tiza de fondo original */
+  color: #333333;
+}
+
+/* Propiedad clave para la alternancia de la SPA */
+.contenedor-oculto {
+  display: none !important;
+}
+
+/* ==========================================================================
+   2. HEADER FIJO Y MULTINIVEL ORIGINAL
+   ========================================================================== */
+.main-header {
+  border-bottom: 1px solid #eef2f5;
+  background-color: #ffffff;
+  position: fixed;        
+  top: 0;                 
+  left: 0;                
+  width: 100%;            
+  z-index: 2000;          
+}
+
+.header-main-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header-logo img {
+  height: 65px;
+  width: auto;
+  display: block;
+}
+
+.header-search form {
+  display: flex;
+  gap: 10px;
+}
+
+.header-search input {
+  width: 380px;
+  padding: 10px 16px;
+  border: 1px solid #e1e8ed;
+  border-radius: 20px;
+  background-color: #f5f8fa;
+  font-size: 14px;
+  outline: none;
+}
+
+.header-search button {
+  background-color: #a2c2e8; /* Azul pastel sereno */
+  color: #ffffff;
+  border: none;
+  padding: 0 20px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.header-user-actions .action-btn {
+  text-decoration: none;
+  color: #555555;
+  margin-left: 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.header-user-actions .action-btn:hover {
+  color: #a2c2e8;
+}
+
+/* Barra de enlaces */
+.header-nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  position: relative;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li {
+  margin-right: 30px;
+  padding-bottom: 10px; 
+  margin-bottom: -10px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #666666;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: #a2c2e8;
+}
+
+.nav-links .nav-sale {
+  background-color: #ffebee; /* Fondo rojizo suave */
+  color: #e57373; /* Coral/salmón original */
+  padding: 6px 14px;
+  border-radius: 15px;
+  font-weight: 600;
+}
+
+.nav-support a {
+  text-decoration: none;
+  color: #a2c2e8;
+  border: 1px solid #a2c2e8;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.nav-support a:hover {
+  background-color: #a2c2e8;
+  color: #ffffff;
+}
+
+/* Mega Menú Desplegable */
+.mega-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0 8px 24px rgba(162, 194, 232, 0.15);
+  border-radius: 0 0 12px 12px;
+  border-top: 3px solid #a2c2e8;
+  
+  /* Mantén tu distribución original interna */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  padding: 30px 40px;
+  z-index: 1000;
+
+  /* 🛠️ TRUCO DE VISIBILIDAD: Oculto por defecto */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none; /* Evita que se pueda clickear sin querer estando invisible */
+
+  /* ⏱️ BUFFER DE SALIDA: Cuando el cursor se ALEJA, espera 0.25 segundos antes de cerrarse */
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  transition-delay: 0.25s; 
+}
+
+/* COMPORTAMIENTO AL PASAR EL CURSOR (HOVER) */
+.has-mega-menu:hover .mega-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto; /* Activa los clics cuando es visible */
+  
+  /* ⚡ ENTRADA INSTANTÁNEA: Al entrar con el cursor, se abre inmediatamente sin retrasos */
+  transition-delay: 0s;
+}
+
+.mega-column h3 {
+  color: #a2c2e8;
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+.mega-column a {
+  display: block;
+  color: #555555;
+  text-decoration: none;
+  padding: 6px 0;
+  font-size: 14px;
+}
+
+.mega-column a:hover {
+  color: #a2c2e8;
+}
+
+/* ==========================================================================
+   3. CONTENEDOR CENTRAL Y VISTAS (MAIN)
+   ========================================================================== */
+.main-content {
+  max-width: 1200px;
+  margin: 180px auto 60px auto; /* Deja espacio para que el cabezal no tape nada */
+  padding: 0 40px;
+}
+
+/* Animación sutil de entrada para la SPA */
+.seccion-spa {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hero Section */
+.hero-sales {
+  background: linear-gradient(135deg, #eef5fc 0%, #fcfbf9 100%);
+  border-radius: 24px;
+  padding: 60px 40px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 1px solid #eef2f5;
+  box-shadow: 0 8px 24px rgba(162, 194, 232, 0.08);
+}
+
+.hero-content {
+  max-width: 800px;
+}
+
+.hero-content h1 {
+  font-size: 38px;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  color: #666666;
+  margin-bottom: 35px;
+}
+
+.hero-cta-btn {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #a2c2e8;
+  color: #ffffff;
+  padding: 16px 36px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(162, 194, 232, 0.4);
+}
+
+/* Títulos de sección */
+.sales-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.sales-title h2 {
+  font-size: 26px;
+  margin-bottom: 8px;
+}
+
+.sales-title p {
+  color: #777777;
+}
+
+/* Grids de Productos (3 Columnas simétricas) */
+.products-grid, 
+.products-grid-categoria {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* ==========================================================================
+   4. COMPONENTE CARD DE PRODUCTO ORIGINAL
+   ========================================================================== */
+.product-card {
+  background-color: #ffffff;
+  border: 1px solid #eef2f5;
+  border-radius: 16px;
+  padding: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(162, 194, 232, 0.15);
+}
+
+.badge-discount {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background-color: #ffebee;
+  color: #e57373;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  z-index: 10;
+}
+
+.product-image {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.product-image img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.product-info h3 {
+  font-size: 16px;
+  margin: 0 0 8px 0;
+}
+
+.pet-category {
+  font-size: 12px;
+  color: #888888;
+  margin-bottom: 12px;
+}
+
+.product-price {
+  display: flex;
+  align-items: center;
+}
+
+.current-price {
+  font-size: 18px;
+  font-weight: 600;
+  color: #e57373;
+  margin-right: 10px;
+}
+
+.old-price {
+  color: #b0bec5;
+  text-decoration: line-through;
+  font-size: 14px;
+}
+
+.buy-btn {
+  width: 100%;
+  margin-top: 15px;
+  padding: 12px 0;
+  background-color: #a2c2e8;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.buy-btn:hover {
+  background-color: #8cb5e0;
+}
+
+/* Estilos extras pantallas informativas */
+.bloque-quienes-somos {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid #eef2f5;
+  box-shadow: 0 8px 24px rgba(162, 194, 232, 0.05);
+}
+
+.cuadricula-ayuda {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.tarjeta-ayuda {
+  background-color: #ffffff;
+  border: 2px solid #eef2f5;
+  padding: 30px 20px;
+  text-align: center;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.tarjeta-ayuda:hover {
+  border-color: #a2c2e8;
+}
+
+/* ==========================================================================
+   5. PIE DE PÁGINA (FOOTER)
+   ========================================================================== */
+.main-footer {
+  background-color: #f4f7f9;
+  padding: 60px 40px 30px 40px;
+  border-top: 1px solid #eef2f5;
+}
+
+.footer-newsletter {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 50px auto;
+}
+
+.footer-newsletter h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.newsletter-form input {
+  width: 300px;
+  padding: 12px 18px;
+  border: 1px solid #e1e8ed;
+  border-radius: 25px;
+  outline: none;
+}
+
+.newsletter-form button {
+  background-color: #a2c2e8;
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.footer-bottom-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #e1e8ed;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #4a5568;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.social-btn {
+  text-decoration: none;
+  color: #4a5568;
+  font-size: 13px;
+  font-weight: 600;
+  background-color: #e2ecf7;
+  padding: 8px 16px;
+  border-radius: 20px;
+}
+
+.footer-copyright {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 13px;
+  color: #777777;
+}
+
+/* ==========================================================================
+   6. RESPONSIVIDAD MÓVIL CRÍTICA 📱
+   ========================================================================== */
+@media (max-width: 768px) {
+  .main-header {
+    position: absolute; /* Reajusta el header fijo para evitar saltos raros en móviles */
+  }
+
+  .header-main-bar {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 20px;
+  }
+
+  .header-search input {
+    width: 100%;
+  }
+
+  .header-user-actions {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .header-nav-bar {
+    flex-direction: column;
+    padding: 10px 20px;
+    gap: 10px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .nav-links li {
+    margin: 0;
+  }
+
+  /* El contenido se empuja más abajo porque el cabezal apilado es más alto */
+  .main-content {
+    margin-top: 290px;
+    padding: 0 20px;
+  }
+
+  .hero-sales {
+    padding: 40px 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 24px;
+  }
+
+  /* Conversión instantánea de todas las cuadrículas a una sola columna vertical */
+  .products-grid, 
+  .products-grid-categoria, 
+  .cuadricula-ayuda {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .newsletter-form input {
+    width: 100%;
+  }
+
+  .footer-bottom-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+  }
+}
